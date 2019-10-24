@@ -16,6 +16,9 @@ public class LinkedList implements Cloneable {
     public Node getHead() {
         return head;
     }
+    public Node getTail() {
+        return tail;
+    }
     @SuppressWarnings("Duplicates")
     public void addFront(Object object)
     {
@@ -38,8 +41,8 @@ public class LinkedList implements Cloneable {
     {
         if (count==0)
         {
-            head = new Node(object);
-            tail = head;
+            tail = new Node(object);
+            head = tail;
             count++;
             return;
         }
@@ -55,7 +58,7 @@ public class LinkedList implements Cloneable {
     {
 
         Object dat = head.get();
-        head = head.getLastptr();
+        head = head.getLastPtr();
         count--;
         return dat;
     }
@@ -81,13 +84,13 @@ public class LinkedList implements Cloneable {
 
     @Override
     public String toString() {
-        StringBuilder res = new StringBuilder("LinkedList{");
+        StringBuilder res = new StringBuilder();
         Node current = head;
         while (current!=null)
         {
-            res.append(current).append(",");
+            res.append(current).append("\n");
             current = current.getNextPtr();
         }
-        return res +"}";
+        return res.toString();
     }
 }

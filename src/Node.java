@@ -1,4 +1,4 @@
-public class Node {
+public class Node implements Cloneable {
     Node next;
     Node last;
     Object data;
@@ -6,6 +6,9 @@ public class Node {
     {
         data = null;
         next = null;
+    }
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
     public Node(Object data)
     {
@@ -28,7 +31,7 @@ public class Node {
     {
         this.next = node;
     }
-    public Node getLastptr()
+    public Node getLastPtr()
     {
         return last;
     }
